@@ -20,7 +20,10 @@ pipeline {
     stage('Prepare Dependencies') {
       steps {
              sh 'mv .env.sample .env'
-             sh 'composer install'
+             sh 'install curl php-cli php-zip unzip'
+             sh 'curl -sS https://getcomposer.org/installer -o composer-setup.php'
+             sh 'php composer-setup.php --install-dir=/usr/local/bin --filename=composer'
+             //sh 'composer install'
              sh 'php artisan migrate'
              sh 'php artisan db:seed'
              sh 'php artisan key:generate'
