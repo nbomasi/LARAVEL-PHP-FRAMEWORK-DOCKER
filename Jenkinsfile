@@ -20,10 +20,10 @@ pipeline {
     stage('Prepare Dependencies') {
       steps {
              sh 'mv .env.sample .env'
-             sh 'sudo apt update'
-             sh 'sudo apt install curl -y' 
-             sh 'udo apt install php-cli -y' 
-             sh 'udo apt install php-zip unzip -y'
+             sh 'apt update -y'
+             sh 'apt install curl -y' 
+             sh 'apt install php-cli -y' 
+             sh 'apt install php-zip unzip -y'
              sh 'curl -sS https://getcomposer.org/installer -o composer-setup.php'
              sh 'php composer-setup.php --install-dir=/usr/local/bin --filename=composer'
              //sh 'composer install'
