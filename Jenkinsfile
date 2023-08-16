@@ -26,7 +26,7 @@ pipeline {
             //  sh 'apt install php-zip unzip -y'
              sh 'curl -sS https://getcomposer.org/installer -o composer-setup.php'
              sh 'php composer-setup.php --install-dir=/usr/local/bin --filename=composer'
-             //sh 'composer install'
+             sh 'composer install'
              sh 'php artisan migrate'
              sh 'php artisan db:seed'
              sh 'php artisan key:generate'
