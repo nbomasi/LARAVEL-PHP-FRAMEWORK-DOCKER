@@ -20,7 +20,7 @@ pipeline {
     stage('Prepare Dependencies') {
       steps {
              sh 'mv .env.sample .env'
-             sh 'install curl' 
+             sh 'curl install' 
              sh 'install php-cli' 
              sh 'install php-zip'
              sh 'install unzip'
