@@ -19,4 +19,6 @@ The compose file contain both app service and the db service also.
 Find the project output below:
 
 
+![Laravel-web-page](Laravel.png)
+
 
