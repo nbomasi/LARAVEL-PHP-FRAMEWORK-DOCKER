@@ -1,0 +1,29 @@
+services:
+  laravel:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - laravel:/var/www/html  # Named volume for frontend
+    container_name: laravel-cont
+    restart: on-failure
+    depends_on:
+      - db
+    #env_file: 
+    #  - .env  # Point to your .env file
+
+  db:
+    image: mysql:5.7
+    restart: always
+    container_name: laravaldb
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+    volumes:
+      - db:/var/lib/mysql  # Named volume for database data
+
+volumes:
+  laravel:
+  db:
